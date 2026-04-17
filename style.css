@@ -1,0 +1,225 @@
+/* --- Base Variables & Theme --- */
+:root {
+    /* Clinical Palette */
+    --bg-main: #f8fafc;        /* Soft slate background */
+    --bg-sidebar: #0f172a;     /* Deep slate for high-contrast nav */
+    --bg-card: #ffffff;        /* Pure white for data containers */
+    
+    --text-main: #334155;      /* Primary text */
+    --text-muted: #64748b;     /* Secondary labels */
+    
+    --accent-teal: #0d9488;    /* Medical Teal primary */
+    --accent-blue: #0284c7;    /* Medical Blue secondary */
+    
+    --border-color: #e2e8f0;
+    
+    /* UX Details */
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Resets --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* --- Layout Architecture --- */
+.dashboard-wrapper {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+    background-color: var(--bg-sidebar);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.sidebar-brand h2 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--accent-teal);
+    letter-spacing: -0.025em;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebar-nav a {
+    text-decoration: none;
+    color: #94a3b8;
+    padding: 0.85rem 1rem;
+    border-radius: 0.5rem;
+    display: block;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+}
+
+.sidebar-nav a:hover, .sidebar-nav a.active {
+    background-color: rgba(13, 148, 136, 0.15);
+    color: var(--accent-teal);
+}
+
+/* --- Main Panel & Header --- */
+.main-panel {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.top-header {
+    height: 72px;
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.search-container input {
+    width: 380px;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: 2rem;
+    font-family: inherit;
+    font-size: 0.875rem;
+    transition: var(--transition-smooth);
+    background-color: var(--bg-main);
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: var(--accent-teal);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+    background-color: var(--bg-card);
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent-blue);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* --- Content & Grids --- */
+.dashboard-content {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.content-header h1 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.metric-card {
+    background-color: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    transition: var(--transition-smooth);
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.metric-card h3 {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.metric-value {
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.metric-trend {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.metric-trend.positive { color: var(--accent-teal); }
+.metric-trend.negative { color: #ef4444; }
+
+/* Charts Grid */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 1.5rem;
+}
+
+.chart-container {
+    background-color: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.chart-container h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+}
+
+.canvas-wrapper {
+    position: relative;
+    height: 320px;
+    width: 100%;
+}
