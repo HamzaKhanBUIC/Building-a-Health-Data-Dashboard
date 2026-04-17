@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health-Data Visualization Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <h2>BioMetrics Pro</h2>
+            </div>
+            <nav class="sidebar-nav" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="#" class="active">Overview</a></li>
+                    <li><a href="#">Patient Records</a></li>
+                    <li><a href="#">Genomic Data</a></li>
+                    <li><a href="#">Clinical Trials</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-panel">
+            <header class="top-header">
+                <div class="search-container">
+                    <label for="patient-search" class="sr-only">Search Patient</label>
+                    <input type="search" id="patient-search" placeholder="Search patient ID or name...">
+                </div>
+                <div class="user-profile" aria-label="User Profile">
+                    <div class="avatar"></div>
+                </div>
+            </header>
+
+            <main class="dashboard-content">
+                <header class="content-header">
+                    <h1>Patient Portfolio Overview</h1>
+                </header>
+
+                <section class="metrics-grid" aria-label="Key Clinical Metrics">
+                    <article class="metric-card">
+                        <h3>Active Patients</h3>
+                        <p class="metric-value">1,204</p>
+                        <span class="metric-trend positive">+12% this month</span>
+                    </article>
+                    <article class="metric-card">
+                        <h3>Average Vitals Alerts</h3>
+                        <p class="metric-value">3.4</p>
+                        <span class="metric-trend negative">-2.1% this week</span>
+                    </article>
+                    <article class="metric-card">
+                        <h3>Samples Processed</h3>
+                        <p class="metric-value">842</p>
+                        <span class="metric-trend positive">+5% today</span>
+                    </article>
+                </section>
+
+                <section class="charts-grid" aria-label="Data Visualizations">
+                    <article class="chart-container">
+                        <h2>12-Hour Heart Rate Trend</h2>
+                        <div class="canvas-wrapper">
+                            <canvas id="heartRateChart"></canvas>
+                        </div>
+                    </article>
+                    <article class="chart-container">
+                        <h2>Cell Count Distribution</h2>
+                        <div class="canvas-wrapper">
+                            <canvas id="cellCountChart"></canvas>
+                        </div>
+                    </article>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
