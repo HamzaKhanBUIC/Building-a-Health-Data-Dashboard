@@ -3,304 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioMetrics Pro - Health Data Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Health-Data Visualization Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="dashboard-wrapper">
-        <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <div class="sidebar-brand">
-                <i class="fas fa-heartbeat"></i>
                 <h2>BioMetrics Pro</h2>
             </div>
             <nav class="sidebar-nav" aria-label="Main Navigation">
                 <ul>
-                    <li><a href="#" class="active" data-section="overview"><i class="fas fa-th-large"></i> Overview</a></li>
-                    <li><a href="#" data-section="patients"><i class="fas fa-users"></i> Patients</a></li>
-                    <li><a href="#" data-section="analytics"><i class="fas fa-chart-line"></i> Analytics</a></li>
-                    <li><a href="#" data-section="genomics"><i class="fas fa-dna"></i> Genomic Data</a></li>
-                    <li><a href="#" data-section="trials"><i class="fas fa-flask"></i> Clinical Trials</a></li>
-                    <li><a href="#" data-section="settings"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="#" class="active">Overview</a></li>
+                    <li><a href="#">Patient Records</a></li>
+                    <li><a href="#">Genomic Data</a></li>
+                    <li><a href="#">Clinical Trials</a></li>
+                    <li><a href="#">Settings</a></li>
                 </ul>
             </nav>
-            <div class="sidebar-footer">
-                <div class="storage-indicator">
-                    <div class="storage-bar">
-                        <div class="storage-used" style="width: 73%"></div>
-                    </div>
-                    <span>73% Storage Used</span>
-                </div>
-            </div>
         </aside>
 
-        <!-- Main Content Panel -->
         <div class="main-panel">
-            <!-- Top Header -->
             <header class="top-header">
-                <div class="header-left">
-                    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <div class="search-container">
-                        <i class="fas fa-search search-icon"></i>
-                        <label for="patient-search" class="sr-only">Search Patient</label>
-                        <input type="search" id="patient-search" placeholder="Search patients, samples, or reports...">
-                    </div>
+                <div class="search-container">
+                    <label for="patient-search" class="sr-only">Search Patient</label>
+                    <input type="search" id="patient-search" placeholder="Search patient ID or name...">
                 </div>
-                <div class="header-right">
-                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                    <button class="notification-btn" id="notificationBtn" aria-label="Notifications">
-                        <i class="fas fa-bell"></i>
-                        <span class="notification-badge">3</span>
-                    </button>
-                    <div class="user-profile" aria-label="User Profile">
-                        <div class="avatar">
-                            <img src="https://ui-avatars.com/api/?name=Dr+Smith&background=0d9488&color=fff" alt="User Avatar">
-                        </div>
-                        <div class="user-info">
-                            <span class="user-name">Dr. Sarah Smith</span>
-                            <span class="user-role">Chief Medical Officer</span>
-                        </div>
-                    </div>
+                <div class="user-profile" aria-label="User Profile">
+                    <div class="avatar"></div>
                 </div>
             </header>
 
-            <!-- Main Dashboard Content -->
             <main class="dashboard-content">
                 <header class="content-header">
-                    <div class="header-title">
-                        <h1>Dashboard Overview</h1>
-                        <p class="subtitle">Real-time patient monitoring and analytics</p>
-                    </div>
-                    <div class="header-actions">
-                        <button class="btn btn-outline" id="exportBtn">
-                            <i class="fas fa-download"></i> Export
-                        </button>
-                        <button class="btn btn-primary" id="refreshBtn">
-                            <i class="fas fa-sync-alt"></i> Refresh Data
-                        </button>
-                    </div>
+                    <h1>Patient Portfolio Overview</h1>
                 </header>
 
-                <!-- Key Metrics Cards -->
                 <section class="metrics-grid" aria-label="Key Clinical Metrics">
-                    <article class="metric-card metric-card-primary">
-                        <div class="metric-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="metric-content">
-                            <h3>Active Patients</h3>
-                            <p class="metric-value" data-target="1204">0</p>
-                            <span class="metric-trend positive">
-                                <i class="fas fa-arrow-up"></i> 12% this month
-                            </span>
-                        </div>
+                    <article class="metric-card">
+                        <h3>Active Patients</h3>
+                        <p class="metric-value">1,204</p>
+                        <span class="metric-trend positive">+12% this month</span>
                     </article>
-                    <article class="metric-card metric-card-warning">
-                        <div class="metric-icon">
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </div>
-                        <div class="metric-content">
-                            <h3>Vitals Alerts</h3>
-                            <p class="metric-value" data-target="23">0</p>
-                            <span class="metric-trend negative">
-                                <i class="fas fa-arrow-down"></i> 5% from yesterday
-                            </span>
-                        </div>
+                    <article class="metric-card">
+                        <h3>Average Vitals Alerts</h3>
+                        <p class="metric-value">3.4</p>
+                        <span class="metric-trend negative">-2.1% this week</span>
                     </article>
-                    <article class="metric-card metric-card-success">
-                        <div class="metric-icon">
-                            <i class="fas fa-vial"></i>
-                        </div>
-                        <div class="metric-content">
-                            <h3>Samples Processed</h3>
-                            <p class="metric-value" data-target="842">0</p>
-                            <span class="metric-trend positive">
-                                <i class="fas fa-arrow-up"></i> 18% today
-                            </span>
-                        </div>
-                    </article>
-                    <article class="metric-card metric-card-info">
-                        <div class="metric-icon">
-                            <i class="fas fa-file-medical"></i>
-                        </div>
-                        <div class="metric-content">
-                            <h3>Pending Reports</h3>
-                            <p class="metric-value" data-target="47">0</p>
-                            <span class="metric-trend neutral">
-                                <i class="fas fa-minus"></i> On track
-                            </span>
-                        </div>
+                    <article class="metric-card">
+                        <h3>Samples Processed</h3>
+                        <p class="metric-value">842</p>
+                        <span class="metric-trend positive">+5% today</span>
                     </article>
                 </section>
 
-                <!-- Main Charts Section -->
-                <section class="charts-grid charts-grid-main" aria-label="Primary Data Visualizations">
-                    <article class="chart-container chart-container-large">
-                        <div class="chart-header">
-                            <h2><i class="fas fa-heartbeat"></i> Heart Rate Monitoring</h2>
-                            <div class="chart-controls">
-                                <select class="time-range-select" id="hrTimeRange">
-                                    <option value="6h">6 Hours</option>
-                                    <option value="12h" selected>12 Hours</option>
-                                    <option value="24h">24 Hours</option>
-                                    <option value="7d">7 Days</option>
-                                </select>
-                            </div>
-                        </div>
+                <section class="charts-grid" aria-label="Data Visualizations">
+                    <article class="chart-container">
+                        <h2>12-Hour Heart Rate Trend</h2>
                         <div class="canvas-wrapper">
                             <canvas id="heartRateChart"></canvas>
                         </div>
-                        <div class="chart-stats">
-                            <div class="stat-item">
-                                <span class="stat-label">Avg BPM</span>
-                                <span class="stat-value">76</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label">Min</span>
-                                <span class="stat-value">68</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label">Max</span>
-                                <span class="stat-value">92</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label">Variability</span>
-                                <span class="stat-value">±12%</span>
-                            </div>
-                        </div>
                     </article>
                     <article class="chart-container">
-                        <div class="chart-header">
-                            <h2><i class="fas fa-chart-bar"></i> Cell Count Analysis</h2>
-                            <button class="chart-action-btn"><i class="fas fa-ellipsis-v"></i></button>
-                        </div>
+                        <h2>Cell Count Distribution</h2>
                         <div class="canvas-wrapper">
                             <canvas id="cellCountChart"></canvas>
                         </div>
                     </article>
                 </section>
-
-                <!-- Secondary Charts Row -->
-                <section class="charts-grid charts-grid-secondary" aria-label="Secondary Data Visualizations">
-                    <article class="chart-container">
-                        <div class="chart-header">
-                            <h2><i class="fas fa-chart-pie"></i> Patient Distribution</h2>
-                        </div>
-                        <div class="canvas-wrapper canvas-wrapper-small">
-                            <canvas id="patientDistributionChart"></canvas>
-                        </div>
-                    </article>
-                    <article class="chart-container">
-                        <div class="chart-header">
-                            <h2><i class="fas fa-tachometer-alt"></i> Blood Pressure Trends</h2>
-                        </div>
-                        <div class="canvas-wrapper canvas-wrapper-small">
-                            <canvas id="bloodPressureChart"></canvas>
-                        </div>
-                    </article>
-                    <article class="chart-container">
-                        <div class="chart-header">
-                            <h2><i class="fas fa-radiation"></i> Lab Results Overview</h2>
-                        </div>
-                        <div class="canvas-wrapper canvas-wrapper-small">
-                            <canvas id="labResultsChart"></canvas>
-                        </div>
-                    </article>
-                </section>
-
-                <!-- Recent Activity & Alerts Section -->
-                <section class="info-grid" aria-label="Additional Information">
-                    <article class="info-card recent-activity">
-                        <div class="card-header">
-                            <h2><i class="fas fa-history"></i> Recent Activity</h2>
-                            <a href="#" class="view-all-link">View All <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                        <div class="activity-list" id="activityList">
-                            <!-- Activity items will be populated by JavaScript -->
-                        </div>
-                    </article>
-
-                    <article class="info-card alerts-panel">
-                        <div class="card-header">
-                            <h2><i class="fas fa-bell"></i> Active Alerts</h2>
-                            <span class="alert-count">3</span>
-                        </div>
-                        <div class="alerts-list" id="alertsList">
-                            <!-- Alerts will be populated by JavaScript -->
-                        </div>
-                    </article>
-                </section>
-
-                <!-- Patient Data Table -->
-                <section class="table-section" aria-label="Patient Data Table">
-                    <div class="table-header">
-                        <h2><i class="fas fa-table"></i> Recent Patient Records</h2>
-                        <div class="table-controls">
-                            <div class="filter-group">
-                                <select id="statusFilter" class="filter-select">
-                                    <option value="all">All Status</option>
-                                    <option value="stable">Stable</option>
-                                    <option value="critical">Critical</option>
-                                    <option value="recovering">Recovering</option>
-                                </select>
-                            </div>
-                            <button class="btn btn-sm btn-outline">
-                                <i class="fas fa-filter"></i> Filter
-                            </button>
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="data-table" id="patientTable">
-                            <thead>
-                                <tr>
-                                    <th>Patient ID</th>
-                                    <th>Name</th>
-                                    <th>Age</th>
-                                    <th>Condition</th>
-                                    <th>Last Checkup</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Table rows will be populated by JavaScript -->
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
             </main>
-
-            <!-- Footer -->
-            <footer class="dashboard-footer">
-                <p>&copy; 2024 BioMetrics Pro. All rights reserved. | HIPAA Compliant</p>
-            </footer>
         </div>
     </div>
 
-    <!-- Notification Panel -->
-    <div class="notification-panel" id="notificationPanel">
-        <div class="notification-header">
-            <h3>Notifications</h3>
-            <button class="close-btn" id="closeNotificationPanel"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="notification-body" id="notificationBody">
-            <!-- Notifications populated by JS -->
-        </div>
-        <div class="notification-footer">
-            <button class="btn btn-outline btn-full">Mark All as Read</button>
-        </div>
-    </div>
-
-    <!-- Overlay -->
-    <div class="overlay" id="overlay"></div>
-
-    <!-- Chart.js Library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
