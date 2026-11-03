@@ -1,60 +1,44 @@
-# Health Data Visualization Dashboard
+# Health Data Dashboard (practice project)
 
-> Responsive clinical telemetry and patient vital metrics dashboard built with vanilla JavaScript, CSS Grid, and Chart.js.
+> A one-page dashboard mock-up that plots sample heart-rate and white-cell-count data with Chart.js, built to practise CSS Grid layouts and charting.
 
-[![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla_ES6-F7DF1E.svg?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Chart.js](https://img.shields.io/badge/Visualization-Chart.js-FF6384.svg?logo=chartdotjs)](https://www.chartjs.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+**Status:** Learning project. Mock data only, no backend. Desktop layout only (not mobile-responsive).
+**Demo:** [Live page](https://hamzakhanbuic.github.io/Building-a-Health-Data-Dashboard/)
 
----
+## What it shows
 
-## Overview
+The page ("BioMetrics Pro") has a sidebar, three metric cards (Active Patients, Average Vitals Alerts, Samples Processed), a 12-hour heart-rate line chart and a leukocyte-count bar chart. The card values and the chart data are hard-coded sample values in `index.html` and `script.js`. No real patient data is used.
 
-Clinical data visualization requires high visual clarity and immediate legibility under low cognitive overhead.
+Files: `index.html` (layout), `style.css` (CSS Grid layout and colors), `script.js` (Chart.js setup). Chart.js is loaded from the jsDelivr CDN.
 
-This project implements a responsive frontend health data dashboard that translates simulated medical vitals, cardiovascular time-series trends, and patient laboratory metrics into clean interactive charts.
+## Quickstart
 
----
+No build step and no dependencies. Open `index.html` in a browser (an internet connection is needed for Chart.js and Google Fonts), or serve it locally:
 
-## Core Capabilities
-
-- **Clinical Vitals Visualization**: Dynamic time-series rendering of cardiovascular telemetry and blood pressure metrics via Chart.js.
-- **Pure Web Standards**: Built without heavy UI frameworks, using semantic HTML5 and vanilla ES6 modules.
-- **Custom Clinical Palette**: High-contrast, accessibility-focused color schemes designed for clinical readability.
-- **Modular Data Interface**: Data series in `script.js` are decoupled from rendering logic to allow straightforward connection to REST API endpoints.
-
----
-
-## Repository Structure
-
-```
-.
-├── index.html                # Semantic dashboard layout
-├── style.css                 # Custom responsive CSS Grid and clinical palette
-├── script.js                 # Chart configuration and metric rendering
-└── README.md
+```bash
+git clone https://github.com/HamzaKhanBUIC/Building-a-Health-Data-Dashboard.git
+cd Building-a-Health-Data-Dashboard
+python -m http.server 8000
 ```
 
----
+Then open http://localhost:8000.
 
-## Local Setup
+## Configuration
 
-This project runs directly in any modern browser with zero build steps or external package managers required:
+None.
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/HamzaKhanBUIC/Building-a-Health-Data-Dashboard.git
-   cd Building-a-Health-Data-Dashboard
-   ```
+## Limitations
 
-2. **Open in browser**:
-   Open `index.html` in Chrome, Firefox, or Safari, or serve with a local HTTP server:
-   ```bash
-   python -m http.server 8000
-   ```
-
----
+- All data is mock data, defined inside the chart functions in `script.js`. There is no API, and the data is not separated from the rendering code.
+- Not mobile-responsive: `style.css` has no `@media` rules and a fixed 260 px sidebar. On a 375 px wide phone the content is clipped.
+- Only heart rate and white-cell count are charted. There is no blood-pressure data.
+- Charts are drawn once on load. They do not update.
+- The sidebar links and the search box do nothing.
+- `script.js` is a classic script, not an ES module.
+- Chart.js is loaded from the CDN without a pinned version or an integrity hash.
+- No tests. No accessibility testing has been done.
+- Not a medical tool.
 
 ## License
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+MIT. See [LICENSE](LICENSE).
